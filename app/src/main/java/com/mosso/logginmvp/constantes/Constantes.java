@@ -6,7 +6,7 @@ package com.mosso.logginmvp.constantes;
 
 public class Constantes {
 
-    public static final String BASE_URL  = "";
+    public static final String BASE_URL  = "http://blueiconstocks.cloudapp.net:8282/api/Servicios/";
 
 
 }

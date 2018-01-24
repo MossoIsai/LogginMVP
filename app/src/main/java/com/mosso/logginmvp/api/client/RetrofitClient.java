@@ -18,7 +18,7 @@ public class RetrofitClient {
   private static  Retrofit mretrofit = null;
 
 
-  private static Retrofit getInstance(){//Singleton
+  public static Retrofit getInstance(){//Singleton
 
       HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
       httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
