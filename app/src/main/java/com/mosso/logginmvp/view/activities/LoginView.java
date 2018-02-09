@@ -13,12 +13,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class LoginView extends AppCompatActivity implements ILoginView {
+public class LoginView extends AppCompatActivity implements LoginInterface.View{
 
     @BindView(R.id.txtNombre) EditText txtNombre;
     @BindView(R.id.txtPassword) EditText txtPassword;
     @BindView(R.id.btnEnter) Button btnEnter;
-    LoginPresenterImpl loginPresenter;
+    //LoginPresenterImpl loginPresenter;
+    LoginPresenter loginPresenter;
     private String nombre;
     private String password;
 
@@ -27,22 +28,23 @@ public class LoginView extends AppCompatActivity implements ILoginView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
         ButterKnife.bind(this);
-        loginPresenter = new LoginPresenterImpl(this);
+        //loginPresenter = new LoginPresenterImpl(this);
+        loginPresenter = new LoginPresenter(this);
     }
 
     @OnClick(R.id.btnEnter) void clickEnter(){
-         loginPresenter.login(nombre, password);
+       loginPresenter.login(nombre,password);
+         //loginPresenter.login(nombre, password);
+
     }
 
     @Override
     public void initViews() {
+        //Cambio el tipo de letra y personalizo
         nombre = txtNombre.getText().toString();
         password = txtPassword.getText().toString();
-
         Typeface typeface = Typeface.createFromAsset(getAssets(),"font/dksljdksds/letra.otf");
         txtPassword.setTypeface(typeface);
-
-
     }
 
 
